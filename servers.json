@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "./output"],
+      "description": "Read and write generated files to the output directory"
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Create branches, commit files, and open pull requests"
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "${DATABASE_URL}"],
+      "description": "Validate schema and run test queries against the database"
+    },
+    "bash": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-bash"],
+      "description": "Run lint, build, and validation commands on generated code"
+    }
+  }
+}
